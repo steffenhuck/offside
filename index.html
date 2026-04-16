@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OFFSIDE — A Play</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pitch: #2f6f3e;
+  --text: #f2f5f1;
+  --muted: #cdd6cf;
+  --line: rgba(255,255,255,0.35);
+  --content-width: 760px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--pitch);
+  color: var(--text);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 23px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  width: min(var(--content-width), calc(100vw - 3rem));
+  margin: 0 auto;
+  padding: 5rem 0 4rem;
+}
+
+/* TITLE AREA */
+
+.title-block {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  font-size: 2.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+/* FOOTBALL ICON */
+
+.ball {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+}
+
+/* CAST */
+
+.cast {
+  margin: 2rem 0 2.5rem;
+  color: var(--muted);
+}
+
+/* TEXT */
+
+p {
+  margin: 0 0 1.2rem;
+}
+
+.speaker {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.stage {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* SIGNATURE */
+
+.signature {
+  margin-top: 3.5rem;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+}
+
+.signature a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  body {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .ball {
+    width: 34px;
+    height: 34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <div class="title-block">
+    <div class="title">OFFSIDE</div>
+    <div class="subtitle">A Play</div>
+
+    <!-- Inline SVG Football -->
+    <svg class="ball" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="#ffffff"/>
+      <polygon points="50,20 65,35 58,55 42,55 35,35" fill="#111"/>
+      <polygon points="20,50 35,35 42,55 30,65" fill="#111"/>
+      <polygon points="80,50 65,35 58,55 70,65" fill="#111"/>
+      <polygon points="50,80 35,65 42,55 58,55 65,65" fill="#111"/>
+    </svg>
+  </div>
+
+  <div class="cast">
+    The Blue Striker / The Referee / The Blue Defender / The First Student
+  </div>
+
+  <p class="stage">
+    (A football pitch on the grounds of the Institute for the Advancement of Dictatorships. Late afternoon. The lake is visible beyond the far goal. One of the students has been appointed referee. Most of the others are on the pitch, some playing for Blue, some for Red. The First Student sits on a folding chair at the sideline, a coat over his shoulders.)
+  </p>
+
+  <p class="stage">(Play is underway. The Blue Striker shoots. The ball crosses the line.)</p>
+
+  <p><span class="speaker">The Blue Striker</span><br>Goal!</p>
+
+  <p><span class="speaker">The Referee</span><br><span class="stage">(without hesitation)</span><br>Offside.</p>
+
+  <p><span class="speaker">The Blue Striker</span><br>I was not offside.</p>
+
+  <p><span class="speaker">The Referee</span><br>I was in the best position.</p>
+
+  <p><span class="speaker">The Blue Striker</span><br><span class="stage">(to the First Student)</span><br>You saw it.</p>
+
+  <p class="stage">(The First Student looks at the lake. The game continues.)</p>
+
+  <p class="stage">(Some minutes pass. The light begins to soften. Suddenly, there is a swift attack from the Reds. The ball rises and passes well above the crossbar.)</p>
+
+  <p><span class="speaker">The Blue Defender</span><br>Phew.</p>
+
+  <p><span class="speaker">The Referee</span><br><span class="stage">(without hesitation)</span><br>Goal.</p>
+
+  <p><span class="speaker">The Blue Defender</span><br>It went above the bar.</p>
+
+  <p><span class="speaker">The Referee</span><br>It did not.</p>
+
+  <p><span class="speaker">The Blue Defender</span><br>By a metre.</p>
+
+  <p><span class="speaker">The Referee</span><br>I was in the best position. It went straight into the net.</p>
+
+  <p><span class="speaker">The Blue Defender</span><br><span class="stage">(to the First Student)</span><br>You saw it.</p>
+
+  <p class="stage">(The First Student looks at the lake, then stands. He folds his coat over his arm and looks at the Referee.)</p>
+
+  <p><span class="speaker">The First Student</span><br>Well played.</p>
+
+  <p class="stage">(He walks inside.)</p>
+
+  <div class="signature">
+    <a href="https://steffenhuck.github.io">steffen huck</a>
+  </div>
+
+</div>
+
+</body>
+</html>
