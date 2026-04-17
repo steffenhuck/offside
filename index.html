@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OFFSIDE — A Play</title>
 
+  <!-- GoatCounter -->
+  <script data-goatcounter="https://steffenhuck.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --pitch: #2f6b2f;
-      --pitch-line: rgba(255,255,255,0.18);
+      --pitch-a: #2d6b31;
+      --pitch-b: #34773a;
+      --pitch-line: rgba(255,255,255,0.16);
       --text: #f4f6f1;
-      --muted: #d8dfd2;
-      --seam: #9da59a;
+      --muted: #d7ded1;
       --content-width: 760px;
     }
 
@@ -32,7 +36,14 @@
     }
 
     body {
-      background: var(--pitch);
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--pitch-a) 0px,
+          var(--pitch-a) 180px,
+          var(--pitch-b) 180px,
+          var(--pitch-b) 360px
+        );
       color: var(--text);
       font-family: "Source Serif 4", Georgia, serif;
       font-size: 23px;
@@ -50,34 +61,23 @@
 
     .title-block {
       position: relative;
-      padding: 0 0 1.7rem 0;
+      padding: 0 0 1.8rem 0;
       margin: 0 0 2.15rem 0;
       border-bottom: 1px solid var(--pitch-line);
-      min-height: 190px;
     }
 
     .title {
-      font-size: 2.3rem;
-      line-height: 1.05;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
       margin: 0;
-      max-width: 68%;
+      font-size: 3.25rem;
+      line-height: 0.98;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .subtitle {
-      margin-top: 0.5rem;
-      font-size: 1.12rem;
+      margin-top: 0.7rem;
+      font-size: 1.45rem;
       color: var(--muted);
-    }
-
-    .ball-wrap {
-      position: absolute;
-      top: -0.15rem;
-      right: -0.15rem;
-      width: 168px;
-      height: 168px;
-      pointer-events: none;
     }
 
     .cast {
@@ -111,18 +111,6 @@
       text-decoration: none;
     }
 
-    @media (max-width: 900px) {
-      .ball-wrap {
-        width: 148px;
-        height: 148px;
-        right: 0;
-      }
-
-      .title {
-        max-width: 66%;
-      }
-    }
-
     @media (max-width: 700px) {
       body {
         font-size: 20px;
@@ -134,26 +122,18 @@
       }
 
       .title-block {
-        min-height: 150px;
         padding-bottom: 1.35rem;
         margin-bottom: 1.9rem;
       }
 
       .title {
-        font-size: 1.78rem;
-        max-width: 62%;
+        font-size: 2.25rem;
         letter-spacing: 0.09em;
       }
 
       .subtitle {
-        font-size: 1rem;
-      }
-
-      .ball-wrap {
-        width: 116px;
-        height: 116px;
-        top: 0.05rem;
-        right: 0;
+        font-size: 1.15rem;
+        margin-top: 0.55rem;
       }
     }
   </style>
@@ -163,53 +143,6 @@
     <div class="title-block">
       <h1 class="title">OFFSIDE</h1>
       <div class="subtitle">A Play</div>
-
-      <div class="ball-wrap" aria-hidden="true">
-        <svg viewBox="0 0 240 240" width="100%" height="100%">
-          <!-- outer ball -->
-          <circle cx="120" cy="120" r="102" fill="#ffffff" stroke="#cfd4cc" stroke-width="2.2"/>
-
-          <!-- black patches -->
-          <polygon points="120,74 151,96 139,132 101,132 89,96" fill="#111111"/>
-
-          <polygon points="120,39 151,58 151,96 120,74 89,96 89,58" fill="#111111"/>
-
-          <polygon points="57,90 89,96 101,132 71,150 46,121" fill="#111111"/>
-
-          <polygon points="183,90 151,96 139,132 169,150 194,121" fill="#111111"/>
-
-          <polygon points="84,174 101,132 139,132 156,174 120,198" fill="#111111"/>
-
-          <polygon points="71,150 84,174 58,196 33,165 46,121" fill="#111111"/>
-
-          <polygon points="169,150 156,174 182,196 207,165 194,121" fill="#111111"/>
-
-          <!-- seam lines -->
-          <g stroke="var(--seam)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
-            <circle cx="120" cy="120" r="102"/>
-
-            <polygon points="120,74 151,96 139,132 101,132 89,96"/>
-
-            <polyline points="120,74 120,39 151,58 151,96"/>
-            <polyline points="120,74 89,58 89,96"/>
-
-            <polyline points="89,96 57,90 46,121 71,150 101,132"/>
-            <polyline points="151,96 183,90 194,121 169,150 139,132"/>
-
-            <polyline points="101,132 84,174 120,198 156,174 139,132"/>
-
-            <polyline points="71,150 58,196"/>
-            <polyline points="169,150 182,196"/>
-
-            <path d="M89 58 Q72 54 58 63 Q49 68 57 90"/>
-            <path d="M151 58 Q168 54 182 63 Q191 68 183 90"/>
-            <path d="M58 196 Q86 188 84 174"/>
-            <path d="M182 196 Q154 188 156 174"/>
-            <path d="M120 39 Q120 24 133 20 Q155 18 175 32 Q190 43 182 63"/>
-            <path d="M120 39 Q120 24 107 20 Q85 18 65 32 Q50 43 58 63"/>
-          </g>
-        </svg>
-      </div>
     </div>
 
     <div class="cast">
@@ -258,7 +191,5 @@
       <a href="https://steffenhuck.github.io">steffen huck</a>
     </div>
   </div>
-  <script data-goatcounter="https://steffenhuck.goatcounter.com/count"
-        async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
