@@ -12,10 +12,10 @@
   <style>
     :root {
       --pitch: #2f6b2f;
-      --pitch-dark: #295f29;
       --pitch-line: rgba(255,255,255,0.18);
       --text: #f4f6f1;
-      --muted: #d6ddd1;
+      --muted: #d8dfd2;
+      --seam: #9da59a;
       --content-width: 760px;
     }
 
@@ -32,20 +32,7 @@
     }
 
     body {
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,0.025) 0%,
-          rgba(255,255,255,0.0) 100%
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.018) 0px,
-          rgba(255,255,255,0.018) 120px,
-          rgba(0,0,0,0.018) 120px,
-          rgba(0,0,0,0.018) 240px
-        ),
-        linear-gradient(180deg, var(--pitch) 0%, var(--pitch-dark) 100%);
+      background: var(--pitch);
       color: var(--text);
       font-family: "Source Serif 4", Georgia, serif;
       font-size: 23px;
@@ -63,10 +50,10 @@
 
     .title-block {
       position: relative;
-      padding: 0 0 1.65rem 0;
-      margin: 0 0 2.2rem 0;
+      padding: 0 0 1.7rem 0;
+      margin: 0 0 2.15rem 0;
       border-bottom: 1px solid var(--pitch-line);
-      min-height: 180px;
+      min-height: 190px;
     }
 
     .title {
@@ -75,7 +62,7 @@
       letter-spacing: 0.11em;
       text-transform: uppercase;
       margin: 0;
-      max-width: 70%;
+      max-width: 68%;
     }
 
     .subtitle {
@@ -86,10 +73,10 @@
 
     .ball-wrap {
       position: absolute;
-      top: -0.1rem;
-      right: -0.35rem;
-      width: 165px;
-      height: 165px;
+      top: -0.15rem;
+      right: -0.15rem;
+      width: 168px;
+      height: 168px;
       pointer-events: none;
     }
 
@@ -126,9 +113,9 @@
 
     @media (max-width: 900px) {
       .ball-wrap {
-        width: 145px;
-        height: 145px;
-        right: -0.1rem;
+        width: 148px;
+        height: 148px;
+        right: 0;
       }
 
       .title {
@@ -147,7 +134,7 @@
       }
 
       .title-block {
-        min-height: 145px;
+        min-height: 150px;
         padding-bottom: 1.35rem;
         margin-bottom: 1.9rem;
       }
@@ -163,9 +150,9 @@
       }
 
       .ball-wrap {
-        width: 112px;
-        height: 112px;
-        top: 0.1rem;
+        width: 116px;
+        height: 116px;
+        top: 0.05rem;
         right: 0;
       }
     }
@@ -179,89 +166,47 @@
 
       <div class="ball-wrap" aria-hidden="true">
         <svg viewBox="0 0 240 240" width="100%" height="100%">
-          <defs>
-            <radialGradient id="ballBody" cx="35%" cy="30%" r="70%">
-              <stop offset="0%" stop-color="#ffffff"/>
-              <stop offset="58%" stop-color="#f7f7f7"/>
-              <stop offset="86%" stop-color="#dfdfdf"/>
-              <stop offset="100%" stop-color="#cfcfcf"/>
-            </radialGradient>
+          <!-- outer ball -->
+          <circle cx="120" cy="120" r="102" fill="#ffffff" stroke="#cfd4cc" stroke-width="2.2"/>
 
-            <radialGradient id="blackPatch" cx="40%" cy="35%" r="75%">
-              <stop offset="0%" stop-color="#353535"/>
-              <stop offset="100%" stop-color="#111111"/>
-            </radialGradient>
+          <!-- black patches -->
+          <polygon points="120,74 151,96 139,132 101,132 89,96" fill="#111111"/>
 
-            <filter id="ballShadow" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="6" dy="10" stdDeviation="8" flood-color="#143314" flood-opacity="0.42"/>
-            </filter>
+          <polygon points="120,39 151,58 151,96 120,74 89,96 89,58" fill="#111111"/>
 
-            <clipPath id="ballClip">
-              <circle cx="120" cy="120" r="102"/>
-            </clipPath>
-          </defs>
+          <polygon points="57,90 89,96 101,132 71,150 46,121" fill="#111111"/>
 
-          <g filter="url(#ballShadow)">
-            <circle cx="120" cy="120" r="102" fill="url(#ballBody)" stroke="#bdbdbd" stroke-width="2.5"/>
-          </g>
+          <polygon points="183,90 151,96 139,132 169,150 194,121" fill="#111111"/>
 
-          <g clip-path="url(#ballClip)">
-            <!-- central black pentagon -->
-            <polygon
-              points="120,74 151,96 139,132 101,132 89,96"
-              fill="url(#blackPatch)"
-            />
+          <polygon points="84,174 101,132 139,132 156,174 120,198" fill="#111111"/>
 
-            <!-- surrounding black patches -->
-            <polygon
-              points="120,39 151,58 151,96 120,74 89,96 89,58"
-              fill="url(#blackPatch)"
-            />
-            <polygon
-              points="57,90 89,96 101,132 71,150 46,121"
-              fill="url(#blackPatch)"
-            />
-            <polygon
-              points="183,90 151,96 139,132 169,150 194,121"
-              fill="url(#blackPatch)"
-            />
-            <polygon
-              points="84,174 101,132 139,132 156,174 120,198"
-              fill="url(#blackPatch)"
-            />
-            <polygon
-              points="71,150 84,174 58,196 33,165 46,121"
-              fill="url(#blackPatch)"
-            />
-            <polygon
-              points="169,150 156,174 182,196 207,165 194,121"
-              fill="url(#blackPatch)"
-            />
+          <polygon points="71,150 84,174 58,196 33,165 46,121" fill="#111111"/>
 
-            <!-- seam lines -->
-            <g stroke="#7f7f7f" stroke-width="2.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
-              <polygon points="120,74 151,96 139,132 101,132 89,96"/>
-              <polyline points="120,74 120,39 151,58 151,96"/>
-              <polyline points="120,74 89,58 89,96"/>
-              <polyline points="89,96 57,90 46,121 71,150 101,132"/>
-              <polyline points="151,96 183,90 194,121 169,150 139,132"/>
-              <polyline points="101,132 84,174 120,198 156,174 139,132"/>
-              <polyline points="71,150 58,196"/>
-              <polyline points="169,150 182,196"/>
-            </g>
+          <polygon points="169,150 156,174 182,196 207,165 194,121" fill="#111111"/>
 
-            <!-- white panel contour hints -->
-            <g stroke="#d7d7d7" stroke-width="1.55" fill="none" opacity="0.7">
-              <path d="M89 58 Q72 54 58 63 Q49 68 57 90"/>
-              <path d="M151 58 Q168 54 182 63 Q191 68 183 90"/>
-              <path d="M58 196 Q86 188 84 174"/>
-              <path d="M182 196 Q154 188 156 174"/>
-              <path d="M120 39 Q120 24 133 20 Q155 18 175 32 Q190 43 182 63"/>
-              <path d="M120 39 Q120 24 107 20 Q85 18 65 32 Q50 43 58 63"/>
-            </g>
+          <!-- seam lines -->
+          <g stroke="var(--seam)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+            <circle cx="120" cy="120" r="102"/>
 
-            <!-- highlight -->
-            <ellipse cx="88" cy="76" rx="34" ry="18" fill="rgba(255,255,255,0.28)" transform="rotate(-24 88 76)"/>
+            <polygon points="120,74 151,96 139,132 101,132 89,96"/>
+
+            <polyline points="120,74 120,39 151,58 151,96"/>
+            <polyline points="120,74 89,58 89,96"/>
+
+            <polyline points="89,96 57,90 46,121 71,150 101,132"/>
+            <polyline points="151,96 183,90 194,121 169,150 139,132"/>
+
+            <polyline points="101,132 84,174 120,198 156,174 139,132"/>
+
+            <polyline points="71,150 58,196"/>
+            <polyline points="169,150 182,196"/>
+
+            <path d="M89 58 Q72 54 58 63 Q49 68 57 90"/>
+            <path d="M151 58 Q168 54 182 63 Q191 68 183 90"/>
+            <path d="M58 196 Q86 188 84 174"/>
+            <path d="M182 196 Q154 188 156 174"/>
+            <path d="M120 39 Q120 24 133 20 Q155 18 175 32 Q190 43 182 63"/>
+            <path d="M120 39 Q120 24 107 20 Q85 18 65 32 Q50 43 58 63"/>
           </g>
         </svg>
       </div>
